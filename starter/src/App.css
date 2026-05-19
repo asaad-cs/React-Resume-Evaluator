@@ -1,0 +1,122 @@
+html {
+    height: 100%;
+}
+
+body {
+    background-color: #ececec;
+    font-family: sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+main {
+    background-color: rgb(77, 96, 90);
+    padding: 25px;
+    border-radius: 10px;
+    max-width: 800px; /* تحديد عرض أقصى لضمان عدم تمدد المحتوى بشكل مشوه */
+    margin: 0 auto;   /* لتوسط الصفحة في الشاشات الكبيرة */
+}
+
+h1 {
+    font-size: 2.5rem; /* حجم خط متناسق ومستقر بدلاً من vw */
+    color: white;
+    text-align: center;
+    margin-top: 0;
+}
+
+#myform {
+    background-color: rgb(15, 153, 163);
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+fieldset {
+    border: 2px solid white;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 15px; /* إضافة مسافة داخلية لتنظيم العناصر */
+}
+
+label {
+    font-weight: bold;
+    font-size: 1.1rem; /* حجم مريح للقراءة */
+    color: white;
+}
+
+input[type="text"],
+input[type="password"],
+textarea {
+    width: 100%;
+    font-size: 1rem; /* حجم قياسي للمدخلات يمنع التقريب التلقائي في الجوالات */
+    padding: 10px;   /* زيادة طفيفة لتحسين تجربة الكتابة */
+    border-radius: 5px;
+    border: none;
+    box-sizing: border-box;
+    margin-top: 5px; /* مسافة بسيطة بين الليبل والمدخل */
+}
+
+#job-desc {
+    height: 150px;
+    resize: vertical; /* السماح للمستخدم بتكبير التكست أريا عمودياً فقط */
+}
+
+#sub,
+#res {
+    font-size: 1rem;
+    font-weight: bolder;
+    padding: 12px 20px; /* أبعاد متناسقة للضغط */
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    margin-top: 10px;
+}
+
+#sub {
+    background-color: white;
+    color: rgb(15, 153, 163);
+}
+
+#res {
+    background-color: rgb(255, 255, 255);
+    color: rgb(15, 153, 163);
+}
+
+#sub:hover {
+    background-color: rgb(40, 0, 242);
+    color: white;
+    transition: 0.3s;
+}
+
+#res:hover {
+    background-color: rgb(213, 7, 31);
+    color: white;
+    transition: 0.3s;
+}
+
+p {
+    color: rgb(248, 10, 22);
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+#results-area {
+    background-color: white;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    font-size: 1rem;
+}
+
+a {
+    font-size: 1rem;
+    margin-right: 15px;
+    text-decoration: none;
+    color: rgb(15, 153, 163);
+}
+
+input:hover {
+    background-color: rgb(164, 138, 187);
+}
