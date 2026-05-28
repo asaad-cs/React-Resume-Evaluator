@@ -1,8 +1,16 @@
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 function RegisterPage(){
 return(
   <>
+     <div>
+      <h1>Login Page</h1>
+
+      <Link to="/pages/RegisterPage">
+        <button>Go To Sign Up</button>
+      </Link>
+    </div>
   
-  <body>
     <main>
       <section>
         <h1>Create your bootcamp account</h1>
@@ -15,7 +23,7 @@ return(
           <fieldset>
             <legend>Personal information</legend>
 
-            <label for="full-name">Full name</label>
+            <label htmlForfor="full-name">Full name</label>
             <input
               type="text"
               id="full-name"
@@ -26,7 +34,7 @@ return(
               placeholder="Jane Doe"
             />
 
-            <label for="email">Email address</label>
+            <label htmlForfor="email">Email address</label>
             <input
               type="email"
               id="email"
@@ -35,10 +43,10 @@ return(
               placeholder="jane@example.com"
             />
 
-            <label for="birthdate">Birthdate</label>
+            <label htmlForfor="birthdate">Birthdate</label>
             <input type="date" id="birthdate" name="birthdate" required />
 
-            <label for="phone">Phone number</label>
+            <label htmlForfor="phone">Phone number</label>
             <input
               type="tel"
               id="phone"
@@ -51,7 +59,7 @@ return(
           <fieldset>
             <legend>Account setup</legend>
 
-            <label for="username">Username</label>
+            <label htmlForfor="username">Username</label>
             <input
               type="text"
               id="username"
@@ -63,7 +71,7 @@ return(
               placeholder="letters, numbers, underscores"
             />
 
-            <label for="password">Password</label>
+            <label htmlForfor="password">Password</label>
             <input
               type="password"
               id="password"
@@ -81,7 +89,7 @@ return(
               value="frontend"
               required
             />
-            <label for="track-frontend">Frontend</label>
+            <label htmlForfor="track-frontend">Frontend</label>
 
             <input
               type="radio"
@@ -89,7 +97,7 @@ return(
               name="track"
               value="fullstack"
             />
-            <label for="track-fullstack">Full stack</label>
+            <label htmlForfor="track-fullstack">Full stack</label>
 
             <label for="country">Country</label>
             <select id="country" name="country" required>
@@ -100,7 +108,7 @@ return(
               <option value="sa">saudi </option>
             </select>
 
-            <label for="goal">Learning goal</label>
+            <label htmlForfor="goal">Learning goal</label>
             <textarea
               id="goal"
               name="goal"
@@ -118,7 +126,7 @@ return(
         </form>
       </section>
     </main>
-  </body>
+  
 
   
   </>

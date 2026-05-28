@@ -11,20 +11,22 @@ import { Routes, Route, NavLink, Outlet } from 'react-router-dom'
 function App() {
   return (
     <>
-    <RegisterPage />
+    
       <Header/>
-     <Body />
+   
    
       <Routes>
-      <Route path="/" element={Header}/>
-       <Route path="/" element={Body}/>
-       <Route path="/" element={LoginPage}/>
- <Route path="/" element={EvaluatorPage}/>
+      
+       <Route path="/Body" element={<Body/>}/>
+       <Route path="/LoginPage" element={<LoginPage/>}/>
+        <Route path="/RegisterPage" element={<RegisterPage/>}/>
+ <Route path="/EvaluatorPage" element={<EvaluatorPage/>}/>
     </Routes>
 
 <NavLink to="/main">clickto head</NavLink>
 <NavLink to="/Body">click to body</NavLink>
 <NavLink to="/EvaluatorPage">click to EvaluatorPage</NavLink>
+<NavLink to="/RegisterPage">click to RegisterPage</NavLink>
 
 
 <Outlet />
