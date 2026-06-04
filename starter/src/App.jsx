@@ -11,9 +11,10 @@ import { Routes, Route, NavLink, Outlet } from 'react-router-dom'
 function App() {
   return (
     <>
+    
     <LoginPage />
     <Header />
-    <Body />
+   
      
    
    
