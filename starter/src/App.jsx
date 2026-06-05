@@ -1,40 +1,35 @@
-// src/App.jsx
-import { useState } from 'react'
-import Header from './components/Header'
-import EvaluatorPage from './pages/EvaluatorPage'
-import './App.css'
-import Body from './components/Body'
-import RegisterPage from './pages/RegisterPage'
-import LoginPage from './pages/LoginPage'
-import { Routes, Route, NavLink, Outlet } from 'react-router-dom'
+import { Routes, Route, NavLink } from 'react-router-dom';
+import Header from './components/Header';
+import Body from './components/Body';
+import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
+import EvaluatorPage from './pages/EvaluatorPage';
+import './App.css';
 
 function App() {
   return (
     <>
-    
-    <LoginPage />
-    <Header />
-   
-     
-   
-   
-      <Routes>
+      <Header />
       
-       <Route path="/Body" element={<Body/>}/>
-       <Route path="/LoginPage" element={<LoginPage/>}/>
-        <Route path="/RegisterPage" element={<RegisterPage/>}/>
- <Route path="/EvaluatorPage" element={<EvaluatorPage/>}/>
-    </Routes>
+      
+      <nav style={{ padding: '10px', display: 'flex', gap: '10px' }}>
+        <NavLink to="/">Home</NavLink>
+        <NavLink to="/body">Body</NavLink>
+        <NavLink to="/login">Login</NavLink>
+        <NavLink to="/register">Register</NavLink>
+        <NavLink to="/evaluator">Evaluator</NavLink>
+      </nav>
 
-<NavLink to="/main">clickto head</NavLink>
-<NavLink to="/Body">click to body</NavLink>
-<NavLink to="/EvaluatorPage">click to EvaluatorPage</NavLink>
-<NavLink to="/RegisterPage">click to RegisterPage</NavLink>
-
-
-<Outlet />
+    
+      <Routes>
+        <Route path="/" element={<Body />} />
+        <Route path="/body" element={<Body />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/evaluator" element={<EvaluatorPage />} />
+      </Routes>
     </>
-  )
+  );
 }
 
 export default App;
