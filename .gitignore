@@ -1,6 +1,14 @@
-# Ignore local dependencies and build artifacts
-starter/node_modules/
-starter/dist/
+# Frontend
+frontend/node_modules/
+frontend/dist/
+
+# Backend
+backend/__pycache__/
+backend/**/__pycache__/
+backend/*.db
+backend/venv/
+backend/.venv/
+backend/.env
 
 # Ignore nested extracted repo folder if present
 React-Resume-Evaluator/
