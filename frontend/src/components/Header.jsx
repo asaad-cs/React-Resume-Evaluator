@@ -11,38 +11,31 @@ export default function Header() {
   };
 
   return (
-    <header style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '10px 20px', background: '#2d6a4f', color: 'white' }}>
-      <h1 style={{ margin: 0, fontSize: '1.4rem', color: 'white' }}>
-        <Link to="/evaluator" style={{ color: 'white', textDecoration: 'none' }}>
-          Resume Evaluator
-        </Link>
+    <header className="site-header">
+      <h1 className="site-header-logo">
+        <Link to="/evaluator">Resume Evaluator</Link>
       </h1>
 
-      <nav style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+      <nav className="site-header-nav">
         {user ? (
           <>
-            <span style={{ fontSize: '0.9rem' }}>
+            <span className="nav-user-email">
               {user.email}
               {user.role === 'admin' && (
-                <span style={{ marginLeft: '6px', background: '#f4a261', color: '#1d3557', borderRadius: '4px', padding: '1px 6px', fontSize: '0.75rem', fontWeight: 'bold' }}>
-                  admin
-                </span>
+                <span className="nav-admin-badge">admin</span>
               )}
             </span>
             {user.role === 'admin' && (
-              <Link to="/admin" style={{ color: '#95d5b2' }}>Admin Panel</Link>
+              <Link to="/admin" className="nav-link">Admin Panel</Link>
             )}
-            <button
-              onClick={handleLogout}
-              style={{ background: 'transparent', border: '1px solid white', color: 'white', padding: '4px 12px', borderRadius: '4px', cursor: 'pointer' }}
-            >
+            <button className="logout-btn" onClick={handleLogout}>
               Logout
             </button>
           </>
         ) : (
           <>
-            <Link to="/login" style={{ color: '#95d5b2' }}>Login</Link>
-            <Link to="/register" style={{ color: '#95d5b2' }}>Register</Link>
+            <Link to="/login" className="nav-link">Login</Link>
+            <Link to="/register" className="nav-link">Register</Link>
           </>
         )}
       </nav>

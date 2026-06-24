@@ -1,122 +1,558 @@
+/* ===== Base Reset ===== */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 html {
-    height: 100%;
+  height: 100%;
 }
 
 body {
-    background-color: #ececec;
-    font-family: sans-serif;
-    margin: 0;
-    padding: 20px;
+  background-color: #ececec;
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
+/* ===== Header ===== */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 28px;
+  height: 60px;
+  background: #2d6a4f;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+}
+
+.site-header-logo {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.site-header-logo a {
+  color: white;
+  text-decoration: none;
+  font-size: inherit;
+  margin-right: 0;
+  transition: opacity 0.2s;
+}
+
+.site-header-logo a:hover {
+  opacity: 0.85;
+}
+
+.site-header-nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-user-email {
+  font-size: 0.875rem;
+  opacity: 0.85;
+  white-space: nowrap;
+}
+
+.nav-admin-badge {
+  margin-left: 6px;
+  background: #f4a261;
+  color: #1d3557;
+  border-radius: 4px;
+  padding: 2px 7px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
+.nav-link {
+  color: #95d5b2;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-right: 0;
+  transition: opacity 0.2s;
+}
+
+.nav-link:hover {
+  opacity: 0.7;
+}
+
+.logout-btn {
+  background: transparent;
+  border: 1.5px solid rgba(255, 255, 255, 0.65);
+  color: white;
+  padding: 5px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: background 0.2s, border-color 0.2s;
+  line-height: 1;
+}
+
+.logout-btn:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: white;
+}
+
+/* ===== Main Content ===== */
 main {
-    background-color: rgb(77, 96, 90);
-    padding: 25px;
-    border-radius: 10px;
-    max-width: 800px; /* تحديد عرض أقصى لضمان عدم تمدد المحتوى بشكل مشوه */
-    margin: 0 auto;   /* لتوسط الصفحة في الشاشات الكبيرة */
+  background-color: rgb(77, 96, 90);
+  padding: 32px 28px;
+  border-radius: 12px;
+  max-width: 860px;
+  margin: 28px auto;
 }
 
+/* ===== Typography ===== */
 h1 {
-    font-size: 2.5rem; /* حجم خط متناسق ومستقر بدلاً من vw */
-    color: white;
-    text-align: center;
-    margin-top: 0;
+  font-size: 2.25rem;
+  color: white;
+  text-align: center;
+  margin: 0 0 1.5rem;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
 }
 
+h2 {
+  font-size: 1.2rem;
+  color: white;
+  margin: 0 0 12px;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+
+p {
+  color: rgb(248, 10, 22);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.5;
+  margin: 0;
+}
+
+a {
+  color: rgb(15, 153, 163);
+  text-decoration: none;
+  font-size: 1rem;
+  margin-right: 15px;
+  transition: opacity 0.2s;
+}
+
+a:hover {
+  opacity: 0.75;
+}
+
+/* ===== Evaluator Form ===== */
 #myform {
-    background-color: rgb(15, 153, 163);
-    padding: 20px;
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+  background-color: rgb(15, 153, 163);
+  padding: 24px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.des-job {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
 fieldset {
-    border: 2px solid white;
-    border-radius: 5px;
-    background-color: rgba(255, 255, 255, 0.1);
-    padding: 15px; /* إضافة مسافة داخلية لتنظيم العناصر */
+  border: 2px solid white;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 18px 20px;
+  margin: 0;
+}
+
+fieldset legend {
+  color: white;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  padding: 0 6px;
+  letter-spacing: 0.01em;
 }
 
 label {
-    font-weight: bold;
-    font-size: 1.1rem; /* حجم مريح للقراءة */
-    color: white;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  color: white;
+  letter-spacing: 0.01em;
+  display: block;
+  margin-bottom: 0;
 }
 
 input[type="text"],
 input[type="password"],
+input[type="email"],
 textarea {
-    width: 100%;
-    font-size: 1rem; /* حجم قياسي للمدخلات يمنع التقريب التلقائي في الجوالات */
-    padding: 10px;   /* زيادة طفيفة لتحسين تجربة الكتابة */
-    border-radius: 5px;
-    border: none;
-    box-sizing: border-box;
-    margin-top: 5px; /* مسافة بسيطة بين الليبل والمدخل */
+  width: 100%;
+  font-size: 1rem;
+  padding: 10px 14px;
+  border-radius: 6px;
+  border: 2px solid transparent;
+  box-sizing: border-box;
+  outline: none;
+  font-family: inherit;
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+  border-color: rgb(15, 153, 163);
+  box-shadow: 0 0 0 3px rgba(15, 153, 163, 0.25);
+}
+
+input[type="file"] {
+  color: white;
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: 4px 0;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 130px;
 }
 
 #job-desc {
-    height: 150px;
-    resize: vertical; /* السماح للمستخدم بتكبير التكست أريا عمودياً فقط */
+  min-height: 150px;
 }
 
+/* ===== Evaluator Buttons ===== */
 #sub,
 #res {
-    font-size: 1rem;
-    font-weight: bolder;
-    padding: 12px 20px; /* أبعاد متناسقة للضغط */
-    cursor: pointer;
-    border-radius: 5px;
-    border: none;
-    margin-top: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 12px 28px;
+  cursor: pointer;
+  border-radius: 6px;
+  border: none;
+  letter-spacing: 0.02em;
+  transition: background-color 0.2s, color 0.2s, transform 0.1s;
 }
 
 #sub {
-    background-color: white;
-    color: rgb(15, 153, 163);
+  background-color: white;
+  color: rgb(15, 153, 163);
 }
 
 #res {
-    background-color: rgb(255, 255, 255);
-    color: rgb(15, 153, 163);
+  background-color: rgb(255, 255, 255);
+  color: rgb(15, 153, 163);
 }
 
 #sub:hover {
-    background-color: rgb(40, 0, 242);
-    color: white;
-    transition: 0.3s;
+  background-color: rgb(40, 0, 242);
+  color: white;
 }
 
 #res:hover {
-    background-color: rgb(213, 7, 31);
-    color: white;
-    transition: 0.3s;
+  background-color: rgb(213, 7, 31);
+  color: white;
 }
 
-p {
-    color: rgb(248, 10, 22);
-    font-size: 1.1rem;
-    font-weight: bold;
+#sub:active,
+#res:active {
+  transform: scale(0.97);
+}
+
+#sub:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ===== Input hover ===== */
+input:hover {
+  background-color: rgb(164, 138, 187);
+}
+
+/* ===== Error Banner ===== */
+.error-banner {
+  color: rgb(248, 10, 22);
+  background: #fff0f0;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  border-left: 4px solid rgb(248, 10, 22);
+  margin-top: 20px;
+  line-height: 1.4;
+}
+
+/* ===== Evaluation Results ===== */
+.results-section {
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 #results-area {
-    background-color: white;
-    padding: 20px;
-    margin-top: 20px;
+  background-color: white;
+  padding: 24px;
+  margin-top: 0;
+  border-radius: 10px;
+  font-size: 1rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  line-height: 1.7;
+}
+
+/* ===== Auth Pages ===== */
+main.auth-page {
+  background-color: transparent;
+  max-width: none;
+  margin: 0;
+  padding: 24px 16px;
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 60px);
+}
+
+.auth-card {
+  background-color: rgb(77, 96, 90);
+  padding: 40px 36px;
+  border-radius: 14px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.16);
+}
+
+.auth-card h1 {
+  font-size: 1.75rem;
+  text-align: center;
+  margin: 0 0 28px;
+  color: white;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.input-group label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: white;
+  letter-spacing: 0.02em;
+  margin-bottom: 0;
+}
+
+.input-group input {
+  width: 100%;
+  font-size: 1rem;
+  padding: 11px 14px;
+  border-radius: 6px;
+  border: 2px solid transparent;
+  box-sizing: border-box;
+  outline: none;
+  font-family: inherit;
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+
+.input-group input:focus {
+  border-color: rgb(15, 153, 163);
+  box-shadow: 0 0 0 3px rgba(15, 153, 163, 0.25);
+}
+
+.input-group input:hover {
+  background-color: rgb(164, 138, 187);
+}
+
+.login-btn,
+.auth-form button[type="submit"] {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  background-color: rgb(15, 153, 163);
+  color: white;
+  transition: opacity 0.2s, transform 0.1s;
+  margin-top: 6px;
+  letter-spacing: 0.02em;
+  font-family: inherit;
+}
+
+.login-btn:hover,
+.auth-form button[type="submit"]:hover {
+  opacity: 0.85;
+}
+
+.login-btn:active,
+.auth-form button[type="submit"]:active {
+  transform: scale(0.98);
+}
+
+.login-btn:disabled,
+.auth-form button[type="submit"]:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.auth-footer {
+  text-align: center;
+  margin: 20px 0 0;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.auth-footer a {
+  color: rgb(15, 153, 163);
+  font-weight: 600;
+  margin-right: 0;
+  font-size: 0.9rem;
+}
+
+/* ===== Admin Page ===== */
+.admin-table-wrapper {
+  overflow-x: auto;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  margin-top: 20px;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  font-size: 0.9375rem;
+}
+
+.admin-table thead {
+  background: #2d6a4f;
+  color: white;
+}
+
+.admin-table th {
+  padding: 14px 16px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.admin-table td {
+  padding: 12px 16px;
+  color: #333;
+  vertical-align: middle;
+}
+
+.admin-table tbody tr {
+  border-bottom: 1px solid #ddd;
+  transition: background 0.15s;
+}
+
+.admin-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.admin-table tbody tr:hover {
+  background: rgba(15, 153, 163, 0.05);
+}
+
+.actions-cell {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.btn-role {
+  padding: 5px 12px;
+  border-radius: 5px;
+  border: 1.5px solid #2d6a4f;
+  color: #2d6a4f;
+  background: transparent;
+  cursor: pointer;
+  font-size: 0.825rem;
+  font-weight: 600;
+  transition: background 0.15s, color 0.15s;
+  font-family: inherit;
+}
+
+.btn-role:hover {
+  background: #2d6a4f;
+  color: white;
+}
+
+.btn-delete {
+  padding: 5px 12px;
+  border-radius: 5px;
+  border: none;
+  background: #e63946;
+  color: white;
+  cursor: pointer;
+  font-size: 0.825rem;
+  font-weight: 600;
+  transition: opacity 0.15s, transform 0.1s;
+  font-family: inherit;
+}
+
+.btn-delete:hover {
+  opacity: 0.82;
+}
+
+.btn-delete:active {
+  transform: scale(0.96);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 640px) {
+  main {
+    margin: 14px;
+    padding: 22px 16px;
     border-radius: 10px;
-    font-size: 1rem;
-}
+  }
 
-a {
-    font-size: 1rem;
-    margin-right: 15px;
-    text-decoration: none;
-    color: rgb(15, 153, 163);
-}
+  h1 {
+    font-size: 1.75rem;
+  }
 
-input:hover {
-    background-color: rgb(164, 138, 187);
+  .auth-card {
+    padding: 28px 20px;
+  }
+
+  .site-header {
+    padding: 0 16px;
+  }
+
+  .nav-user-email {
+    display: none;
+  }
+
+  #sub,
+  #res {
+    width: 100%;
+    display: block;
+    padding: 12px 16px;
+  }
 }

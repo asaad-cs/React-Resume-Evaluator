@@ -38,38 +38,48 @@ export default function AdminPage() {
   return (
     <main>
       <h1>Admin Panel</h1>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-      <table style={{ width: '100%', borderCollapse: 'collapse', marginTop: '16px', background: 'white', borderRadius: '8px', overflow: 'hidden' }}>
-        <thead style={{ background: '#2d6a4f', color: 'white' }}>
-          <tr>
-            <th style={{ padding: '10px', textAlign: 'left' }}>Email</th>
-            <th style={{ padding: '10px', textAlign: 'left' }}>Role</th>
-            <th style={{ padding: '10px', textAlign: 'left' }}>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {users.map((u) => (
-            <tr key={u.email} style={{ borderBottom: '1px solid #ddd' }}>
-              <td style={{ padding: '10px', color: '#333' }}>{u.email}</td>
-              <td style={{ padding: '10px', color: '#333' }}>{u.role}</td>
-              <td style={{ padding: '10px', display: 'flex', gap: '8px' }}>
-                <button
-                  onClick={() => updateRole(u.email, u.role === 'admin' ? 'user' : 'admin')}
-                  style={{ padding: '4px 10px', cursor: 'pointer' }}
-                >
-                  Make {u.role === 'admin' ? 'User' : 'Admin'}
-                </button>
-                <button
-                  onClick={() => deleteUser(u.email)}
-                  style={{ padding: '4px 10px', cursor: 'pointer', background: '#e63946', color: 'white', border: 'none', borderRadius: '4px' }}
-                >
-                  Delete
-                </button>
-              </td>
+      {error && <div className="error-banner">{error}</div>}
+      <div className="admin-table-wrapper">
+        <table className="admin-table">
+          <thead>
+            <tr>
+              <th>Email</th>
+              <th>Role</th>
+              <th>Actions</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {users.length === 0 ? (
+              <tr>
+                <td colSpan={3} style={{ textAlign: 'center', padding: '28px', color: '#333', opacity: 0.6 }}>
+                  No users found.
+                </td>
+              </tr>
+            ) : (
+              users.map((u) => (
+                <tr key={u.email}>
+                  <td>{u.email}</td>
+                  <td>{u.role}</td>
+                  <td className="actions-cell">
+                    <button
+                      className="btn-role"
+                      onClick={() => updateRole(u.email, u.role === 'admin' ? 'user' : 'admin')}
+                    >
+                      Make {u.role === 'admin' ? 'User' : 'Admin'}
+                    </button>
+                    <button
+                      className="btn-delete"
+                      onClick={() => deleteUser(u.email)}
+                    >
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              ))
+            )}
+          </tbody>
+        </table>
+      </div>
     </main>
   );
 }

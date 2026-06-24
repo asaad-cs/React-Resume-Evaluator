@@ -48,10 +48,8 @@ export default function EvaluatorPage() {
           />
         </div>
 
-        <fieldset className="file">
-          <legend style={{ color: 'white', fontWeight: 'bold', fontSize: '1.1rem' }}>
-            Upload Resume (PDF only)
-          </legend>
+        <fieldset>
+          <legend>Upload Resume (PDF only)</legend>
           <input
             id="resume"
             type="file"
@@ -60,43 +58,39 @@ export default function EvaluatorPage() {
             onChange={(e) => setResumeFile(e.target.files[0] || null)}
           />
           {resumeFile && (
-            <p style={{ color: '#d0f0c0', margin: '6px 0 0', fontSize: '0.9rem' }}>
+            <p style={{ color: '#d0f0c0', margin: '8px 0 0', fontSize: '0.9rem', fontWeight: 500 }}>
               ✓ {resumeFile.name} ({(resumeFile.size / 1024).toFixed(1)} KB)
             </p>
           )}
         </fieldset>
 
-        <button id="sub" type="submit" className="counter" disabled={loading}>
+        <button id="sub" type="submit" disabled={loading}>
           {loading ? 'Evaluating…' : 'Evaluate Resume'}
         </button>
-        <button id="res" type="button" className="counter" onClick={handleReset}>
+        <button id="res" type="button" onClick={handleReset}>
           Reset
         </button>
       </form>
 
       {error && (
-        <p style={{ color: 'red', background: '#fff0f0', padding: '10px', borderRadius: '6px' }}>
-          {error}
-        </p>
+        <div className="error-banner">{error}</div>
       )}
 
       {result && (
-        <section id="next-steps">
-          <div id="docs">
-            <h2>Evaluation Result</h2>
-            <pre
-              id="results-area"
-              style={{
-                whiteSpace: 'pre-wrap',
-                fontFamily: 'inherit',
-                margin: 0,
-                lineHeight: 1.6,
-              }}
-            >
-              {result}
-            </pre>
-          </div>
-        </section>
+        <div className="results-section">
+          <h2>Evaluation Result</h2>
+          <pre
+            id="results-area"
+            style={{
+              whiteSpace: 'pre-wrap',
+              fontFamily: 'inherit',
+              margin: 0,
+              lineHeight: 1.7,
+            }}
+          >
+            {result}
+          </pre>
+        </div>
       )}
     </main>
   );
